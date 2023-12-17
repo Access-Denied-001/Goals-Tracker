@@ -14,9 +14,9 @@
     <body>
         <header>
             <div class="header-wrapper">
-                <!-- <div class="hamburger-btn">
+                <div class="hamburger-btn">
                     <i class="fa-solid fa-bars"></i>
-                </div> -->
+                </div>
                 <div class="logo-container">
                     <img class="logo" src="public/tasker-logo.png"/>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="category-container">
                         <div class="title-wrapper">
                             <i class="fa-solid fa-angle-down"></i>
-                            <p class="title active-list-title"></p>
+                            <p class="title active-list-title">Priorities</p>
                         </div>
                         <div class="incomplete-container tasks"></div>
                     </div>
@@ -93,6 +93,14 @@
                                     <i class="fa-solid fa-xmark"></i>
                                 </button>
                             </div>
+                            <div class="presets">
+                                <div class="preset" data-color="#F1A3BB"></div>
+                                <div class="preset" data-color="#F4C4A9"></div>
+                                <div class="preset" data-color="#F2EE8F"></div>
+                                <div class="preset" data-color="#96D470"></div>
+                                <div class="preset" data-color="#959FEF"></div>
+                                <div class="preset" data-color="#AC68D7"></div>
+                              </div>
                         </div>
                     </div>
                 </form>
@@ -150,7 +158,7 @@
                 </div>
                 <textarea class="details-card" name="notes" id="task-note" placeholder="Add note"></textarea>
                 <div class="details-card" id="task-delete">
-                    Delete Tasks
+                    Delete Task
                     <i class="fa-solid fa-trash"></i>
                 </div>
             </aside>
