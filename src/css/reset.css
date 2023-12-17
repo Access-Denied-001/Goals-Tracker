@@ -1,0 +1,97 @@
+/***---RESET---***/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input[type='color'] {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+/* For Webkit-based browsers */
+input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0; /* Remove padding */
+}
+
+input[type='color']::-webkit-color-swatch {
+  border: none; /* Remove border */
+}
+
+/* For Firefox */
+input[type='color']::-moz-color-swatch {
+  border: none; /* Remove border */
+}
+
+input[type='color']::-moz-focus-inner {
+  border: 0; /* Remove border for Firefox when focused */
+}
+
+/* Remove all animations, transitions and smooth 
+scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
