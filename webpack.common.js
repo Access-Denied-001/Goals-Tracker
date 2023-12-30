@@ -13,9 +13,9 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/,
-                use: {
-                    loader: 'html-loader',
-                }
+                use: [
+                    'html-loader'
+                ]
             },
             {
                 test: /\.css$/,
@@ -25,7 +25,7 @@ module.exports = {
                 ]
             },
             {
-                test:   /\.js$/,
+                test:  /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -35,24 +35,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.(svg|png|jpg|jpe?g|gif)$/i,
-                use: [
-                    {
-                      loader: 'file-loader',
-                      options: {
-                        name: '[name].[ext]',
-                        outputPath: 'assets/images/'
-                      }
-                    }
-                ]
-            },
-            {
-                test: /\.svg/,
-                type: 'asset'
-            },
-            {
-                test: /\.mp3$/,
-                loader: 'asset'
+                test: /\.(svg|png|jpg|jpe?g|gif|mp3)$/,
+                type: 'asset/resource'
             }
         ]
     }
