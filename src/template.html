@@ -19,12 +19,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="logo-container">
-                    <img class="logo" src="Public/tasker-logo.png"/>
-                    <p class="">Goals Tracker</p>
-                </div>
-                <div class="search-container">
-                    <input class="search-bar" type="search" placeholder="Search tasks..."/> 
-                    <input class="search-bar" type="button">&#x1F50E;&#xFE0E;</input>
+                    <h1 class="logo">GOALS TRACKER</h1>
                 </div>
                 <div class="profile">
                     <button class="login-btn">Log In</button>
@@ -35,6 +30,7 @@
             <!--Sidebar with Categories and Search Page-->
             <aside class="sidebar list-sidebar">
                 <div class="lists-wrapper">
+                    <p class="title completed-tasks-title">Filters: </p>
                     <div class="preset-lists-container">
                         <div class="preset-list-card">
                             <button class="favourites-btn swap-btn">Favourites</button>
@@ -52,7 +48,8 @@
                             <button class="planned-btn swap-btn">Planned</button>
                         </div>
                     </div>
-                    <p class="title completed-tasks-title">My Lists</p>
+                    <p></p>
+                    <p class="title completed-tasks-title">Lists: </p>
                     <div class="list-container"></div>
                 </div>
                 <input type="text" name="list" id="new-list-input" placeholder="Create new list" />
@@ -60,6 +57,10 @@
 
             <!--Main content-->
             <div class="active-list">
+                <div class="search-container">
+                    <input class="search-bar" type="search" placeholder="Search tasks..."/> 
+                    <input class="search-bar" type="button"><i class="fa fa-search"></i></input>
+                </div>
                 <div class="todo-container">
                     <div class="category-container">
                         <div class="title-wrapper">

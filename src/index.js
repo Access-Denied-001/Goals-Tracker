@@ -1,5 +1,4 @@
-import './css/reset.css';
-import './css/style.css';
+import './css/index.css';
 import ListBuilder from './Builders/ListBuilder';
 import GoalsBuilder from './Builders/GoalsBuilder';
 import StepBuilder from './Builders/StepBuilder';
@@ -230,10 +229,12 @@ const DomController = (() => {
     const searchBar = document.querySelector(SEARCH_BAR_CLASS);
 
     searchBar.addEventListener(KEYUP, () => {
-      const matches = findAllMatches(searchBar.value.toLowerCase());
-
-      if (searchBar.value === EMPTY_STRING) displayGoals();
-      else displayGoals(matches);
+      if (searchBar == null || searchBar.value === null || searchBar.value === EMPTY_STRING) {
+        displayGoals();
+      } else {
+        const matches = findAllMatches(searchBar.value.toLowerCase());
+        displayGoals(matches);
+      }
     });
 
     function findAllMatches(query) {
