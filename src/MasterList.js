@@ -1,7 +1,7 @@
 import ListBuilder from "./Builders/ListBuilder";
 import GoalsBuilder from "./Builders/GoalsBuilder";
 import StepBuilder from "./Builders/StepBuilder";
-import {format, addDays} from 'date-fns';
+import {format, addDays} from "date-fns";
 
 const MasterList = (() => {
     let currList = [];
