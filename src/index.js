@@ -366,112 +366,117 @@ const DomController = (() => {
     displayGoals();
   }
 
+  function getTotalPlannedTasks() {
+    const plannedBtn = document.querySelector(PLANNED_BTN_CLASS);
+    const plannedCard = plannedBtn.parentElement;
+    const totalTasksList = plannedCard.getElementsByClassName(TOTAL_TASKS_CLASS);
+    const matches = findAllDueToday('planned', 'Planned');
+
+    if(totalTasksList.length > 0){
+      const totalTasks = totalTasksList[0];
+      totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
+    } else {
+      const totalTasksWrapper = document.createElement(P);
+      plannedCard.appendChild(totalTasksWrapper);
+      totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
+      const totalTasks = document.createElement(P);
+      totalTasksWrapper.appendChild(totalTasks);
+      totalTasks.classList.add(TOTAL_TASKS_CLASS);
+
+      totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
+    }
+  };
+
+  function getTotalDueTomorrowTasks() {
+    const dueTomorrowBtn = document.querySelector(DUE_TOMORROW_BTN_CLASS);
+    const dueTomorrowCard = dueTomorrowBtn.parentElement;
+    const totalTasksList = dueTomorrowCard.getElementsByClassName(TOTAL_TASKS_CLASS);
+    const matches = findAllDueToday(1, 'Due Tomorrow');
+
+    if(totalTasksList.length > 0){
+      const totalTasks = totalTasksList[0];
+      totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
+    } else {
+      const totalTasksWrapper = document.createElement(P);
+      dueTomorrowCard.appendChild(totalTasksWrapper);
+      totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
+      const totalTasks = document.createElement(P);
+      totalTasksWrapper.appendChild(totalTasks);
+      totalTasks.classList.add(TOTAL_TASKS_CLASS);
+
+      totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
+    }
+  };
+
+  function getTotalFavouriteTasks() { 
+    const favouritesBtn = document.querySelector(FAVOURITES_BTN_CLASS);
+    const favouritesCard = favouritesBtn.parentElement;
+    const totalTasksList = favouritesCard.getElementsByClassName(TOTAL_TASKS_CLASS);
+    const matches = findAllStarredTasks();
+    
+    if(totalTasksList.length > 0){
+      const totalTasks = totalTasksList[0];
+      totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
+    } else {
+      const totalTasksWrapper = document.createElement(P);
+      favouritesCard.appendChild(totalTasksWrapper);
+      totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
+      const totalTasks = document.createElement(P);
+      totalTasksWrapper.appendChild(totalTasks);
+      totalTasks.classList.add(TOTAL_TASKS_CLASS);
+
+      totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
+    }
+  };
+
+  function getTotalOverdueTasks() {
+    const overdueBtn = document.querySelector(OVERDUE_BTN_CLASS);
+    const overdueCard = overdueBtn.parentElement;
+    const totalTasksList = overdueCard.getElementsByClassName(TOTAL_TASKS_CLASS);
+    const matches = findAllDueToday('pastdue', 'Past Due');
+
+    if(totalTasksList.length > 0){
+      const totalTasks = totalTasksList[0];
+      totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
+    } else {
+      const totalTasksWrapper = document.createElement(P);
+      overdueCard.appendChild(totalTasksWrapper);
+      totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
+      const totalTasks = document.createElement(P);
+      totalTasksWrapper.appendChild(totalTasks);
+      totalTasks.classList.add(TOTAL_TASKS_CLASS);
+
+      totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
+    }
+  };
+
+  function getTotalDueTodayTasks() {
+    const dueTodayBtn = document.querySelector(DUE_TODAY_CLASS);
+    const dueTodayCard = dueTodayBtn.parentElement;
+    const totalTasksList = dueTodayCard.getElementsByClassName(TOTAL_TASKS_CLASS);
+    const matches = findAllDueToday(0, 'Due Today');
+
+    if(totalTasksList.length > 0){
+      const totalTasks = totalTasksList[0];
+      totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
+    } else {
+      const totalTasksWrapper = document.createElement(P);
+      dueTodayCard.appendChild(totalTasksWrapper);
+      totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
+      const totalTasks = document.createElement(P);
+      totalTasksWrapper.appendChild(totalTasks);
+      totalTasks.classList.add(TOTAL_TASKS_CLASS);
+
+      totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
+    }
+  };
+
   function displayLists() {
-    (function getTotalFavouriteTasks() { 
-      const favouritesBtn = document.querySelector(FAVOURITES_BTN_CLASS);
-      const favouritesCard = favouritesBtn.parentElement;
-      const totalTasksList = favouritesCard.getElementsByClassName(TOTAL_TASKS_CLASS);
-      const matches = findAllStarredTasks();
-      
-      if(totalTasksList.length > 0){
-        const totalTasks = totalTasksList[0];
-        totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
-      } else {
-        const totalTasksWrapper = document.createElement(P);
-        favouritesCard.appendChild(totalTasksWrapper);
-        totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
-        const totalTasks = document.createElement(P);
-        totalTasksWrapper.appendChild(totalTasks);
-        totalTasks.classList.add(TOTAL_TASKS_CLASS);
-  
-        totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
-      }
-    })();
-    
-    (function getTotalOverdueTasks() {
-      const overdueBtn = document.querySelector(OVERDUE_BTN_CLASS);
-      const overdueCard = overdueBtn.parentElement;
-      const totalTasksList = overdueCard.getElementsByClassName(TOTAL_TASKS_CLASS);
-      const matches = findAllDueToday('pastdue', 'Past Due');
-
-      if(totalTasksList.length > 0){
-        const totalTasks = totalTasksList[0];
-        totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
-      } else {
-        const totalTasksWrapper = document.createElement(P);
-        overdueCard.appendChild(totalTasksWrapper);
-        totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
-        const totalTasks = document.createElement(P);
-        totalTasksWrapper.appendChild(totalTasks);
-        totalTasks.classList.add(TOTAL_TASKS_CLASS);
-  
-        totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
-      }
-    })();
-
-    (function getTotalDueTodayTasks() {
-      const dueTodayBtn = document.querySelector(DUE_TODAY_CLASS);
-      const dueTodayCard = dueTodayBtn.parentElement;
-      const totalTasksList = dueTodayCard.getElementsByClassName(TOTAL_TASKS_CLASS);
-      const matches = findAllDueToday(0, 'Due Today');
-
-      if(totalTasksList.length > 0){
-        const totalTasks = totalTasksList[0];
-        totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
-      } else {
-        const totalTasksWrapper = document.createElement(P);
-        dueTodayCard.appendChild(totalTasksWrapper);
-        totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
-        const totalTasks = document.createElement(P);
-        totalTasksWrapper.appendChild(totalTasks);
-        totalTasks.classList.add(TOTAL_TASKS_CLASS);
-
-        totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
-      }
-    })();
-
-    (function getTotalDueTomorrowTasks() {
-      const dueTomorrowBtn = document.querySelector(DUE_TOMORROW_BTN_CLASS);
-      const dueTomorrowCard = dueTomorrowBtn.parentElement;
-      const totalTasksList = dueTomorrowCard.getElementsByClassName(TOTAL_TASKS_CLASS);
-      const matches = findAllDueToday(1, 'Due Tomorrow');
-
-      if(totalTasksList.length > 0){
-        const totalTasks = totalTasksList[0];
-        totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
-      } else {
-        const totalTasksWrapper = document.createElement(P);
-        dueTomorrowCard.appendChild(totalTasksWrapper);
-        totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
-        const totalTasks = document.createElement(P);
-        totalTasksWrapper.appendChild(totalTasks);
-        totalTasks.classList.add(TOTAL_TASKS_CLASS);
-
-        totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
-      }
-    })();
-
-    (function getTotalPlannedTasks() {
-      const plannedBtn = document.querySelector(PLANNED_BTN_CLASS);
-      const plannedCard = plannedBtn.parentElement;
-      const totalTasksList = plannedCard.getElementsByClassName(TOTAL_TASKS_CLASS);
-      const matches = findAllDueToday('planned', 'Planned');
-
-      if(totalTasksList.length > 0){
-        const totalTasks = totalTasksList[0];
-        totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
-      } else {
-        const totalTasksWrapper = document.createElement(P);
-        plannedCard.appendChild(totalTasksWrapper);
-        totalTasksWrapper.classList.add(TOTAL_TASKS_WRAPPER_CLASS);
-        const totalTasks = document.createElement(P);
-        totalTasksWrapper.appendChild(totalTasks);
-        totalTasks.classList.add(TOTAL_TASKS_CLASS);
-  
-        totalTasks.innerHTML = matches.items.length > 99 ? NINETY_NINE_PLUS : matches.items.length;
-      }
-    })();
-    
+    getTotalFavouriteTasks();
+    getTotalOverdueTasks();
+    getTotalDueTodayTasks();
+    getTotalDueTomorrowTasks();
+    getTotalPlannedTasks();
 
     const listContainer = document.querySelector(LIST_CONTAINER_CLASS);
     listContainer.innerHTML = EMPTY_STRING;
@@ -700,7 +705,10 @@ const DomController = (() => {
         goal.dueDate = dateSelect.value;
         dueDateLabel.textContent = goal.dueDate;
         setMasterListToLocalStorage(MasterList);
-        displayLists();
+        getTotalDueTodayTasks();
+        getTotalDueTomorrowTasks();
+        getTotalOverdueTasks();
+        getTotalPlannedTasks();
       };
 
       const colorSelector = activeGoalSidebar.querySelector(COLOR_SELECTOR_CLASS);
@@ -841,7 +849,7 @@ const DomController = (() => {
       }else{
         btnContainer.innerHTML = '<i class="fa-regular fa-star"></i>';
       }
-      displayLists();
+      getTotalFavouriteTasks();
     };
 
     function onCompletedToggled(btnContainer, goal) {
@@ -863,6 +871,14 @@ const DomController = (() => {
         incompleteContainer.appendChild(card);
         playSound(failureSound);
       }
+    };
+
+    function combinedGetTotalTasks(){
+      getTotalFavouriteTasks();
+      getTotalOverdueTasks();
+      getTotalDueTodayTasks();
+      getTotalDueTomorrowTasks();
+      getTotalPlannedTasks();
     };
 
     function removeGoal(goal, card) {
