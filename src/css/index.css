@@ -237,6 +237,30 @@ textarea {
   background-color: hsla(0, 0%, 0%, 0.44);
 }
 
+.preset-list-card .total-tasks-wrapper {
+  position: relative;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 99px;
+  height: 1.2rem;
+  aspect-ratio: 1 / 1;
+}
+
+.preset-list-card .total-tasks {
+  position: relative;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-60%, -45%);
+
+  color: hsl(0, 0%, 50%);
+  font-weight: 900;
+  font-size: calc(clamp(0.63rem, calc(0.82rem + -0.16vw), 0.79rem) * 1.1);
+  text-align: center;
+  letter-spacing: -1px;
+}
+
 .list-sidebar button {
   background-color: rgba(255, 255, 255, 0);
   color: hsl(0, 0%, 99%);
