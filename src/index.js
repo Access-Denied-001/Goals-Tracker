@@ -382,7 +382,7 @@ const DomController = (() => {
       const swapBtn = document.createElement(BUTTON);
       card.appendChild(swapBtn);
       swapBtn.classList.add(SWAP_BTN_CLASS);
-      swapBtn.innerHTML = list.title;
+      swapBtn.innerHTML = list.title.length<=25 ? list.title: list.title.slice(0, 20)+".....";
 
       swapBtn.addEventListener(CLICK, () => {
         swapActiveList(list);
