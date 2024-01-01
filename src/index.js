@@ -106,8 +106,8 @@ const DomController = (() => {
     colorInput.value = EMPTY_STRING;
 
     addGoal(title, color, dueDate);
-    console.log(MasterList)
     setMasterListToLocalStorage(MasterList);
+    displayLists();
   });
 
   categoryContainer.forEach((category) => {
