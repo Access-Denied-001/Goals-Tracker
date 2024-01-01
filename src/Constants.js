@@ -19,7 +19,7 @@ export const COLOR_BLACK = '#000000';
 
 // NUMBERS
 export const NEGATIVE_ONE = -1;
-export const NINETY_NINE = '99';
+export const NINETY_NINE_PLUS = '99+';
 
 // ACTIONS
 export const CLICK = 'click';

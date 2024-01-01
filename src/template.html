@@ -50,9 +50,11 @@
                     </div>
                     <p></p>
                     <p class="title completed-tasks-title">Lists: </p>
+                    <div>
+                        <input type="text" name="list" id="new-list-input" placeholder="Create new list" />
+                    </div>
                     <div class="list-container"></div>
                 </div>
-                <input type="text" name="list" id="new-list-input" placeholder="Create new list" />
             </aside>
 
             <!--Main content-->
@@ -164,21 +166,9 @@
                 </div>
                 <textarea class="details-card" name="notes" id="task-note" placeholder="Add note"></textarea>
                 <div class="details-card" id="task-delete">
-                    Delete Task
-                    <i class="fa-solid fa-trash"></i>
+                    Delete <i class="fa-solid fa-trash"></i>
                 </div>
             </aside>
         </main>
-
-        <!--Copyright Footer-->
-        <footer>
-            <a id="copyright" target="_blank"> Copyright ©&nbsp;
-                <script>
-                    document.write(new Date().getFullYear());
-                </script>
-                &nbsp;Devang Singh&nbsp;
-                <i class="fab fa-github"></i>
-            </a>
-        </footer>
     </body>
 </html>
