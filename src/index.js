@@ -510,7 +510,8 @@ const DomController = (() => {
       const deleteBtn = document.createElement(BUTTON);
       card.appendChild(deleteBtn);
       deleteBtn.classList.add(DELETE_BTN_CLASS);
-      deleteBtn.innerHTML = '<i id="task-delete" class="fa-solid fa-trash"></i>';
+      const deleteBtnIcon = '<i id="task-delete" class="fa-solid fa-trash"></i>';
+      deleteBtn.innerHTML = deleteBtnIcon;
 
       deleteBtn.addEventListener(CLICK, () => {
         MasterList.deleteItem(list);

@@ -67,42 +67,46 @@ const MasterList = (() => {
   
     const buildDefault = () => {
       const newMasterList = ListBuilder('Master List');
-      const defaultList = ListBuilder('My Tasks');
+      const defaultList = ListBuilder('Welcome List');
   
       newMasterList.addItem(defaultList);
-      defaultList.addItem(GoalsBuilder(defaultList, 'Welcome to Tasker!'));
+      defaultList.addItem(GoalsBuilder(defaultList, 'Get ready to track your goal progress'));
       defaultList.addItem(
-        GoalsBuilder(defaultList, 'Create a new task.', '#F1A3BB')
+        GoalsBuilder(defaultList, 'Now Tag your goals with colors', '#F1A3BB')
       );
-      defaultList.addItem(
-        GoalsBuilder(defaultList, 'Prioritize a task.', '#F4C4A9', undefined, true)
-      );
-  
+
       const today = new Date();
   
       defaultList.addItem(
         GoalsBuilder(
           defaultList,
-          'Add a due date.',
+          'Set the due date of the goal',
           '#F2EE8F',
           format(today, 'yyyy-MM-dd')
         )
       );
-  
+      
+      defaultList.addItem(
+        GoalsBuilder(defaultList, 'Mark your goals as favourites to complete them immediately', '#F4C4A9', undefined, true)
+      );
+
       const steps = ListBuilder('Steps');
-      steps.addItem(StepBuilder('Open todo details.', true));
       steps.addItem(StepBuilder('Delete a step.', false));
-      steps.addItem(StepBuilder('Edit a note.', false));
+      steps.addItem(StepBuilder('Change the due date', false));
+      steps.addItem(StepBuilder('Change the tagged color of goal', false));
+      steps.addItem(StepBuilder('Add notes for the goal', false));
+      steps.addItem(StepBuilder('Delete the goal from tracking', false));
+
   
       defaultList.addItem(
         GoalsBuilder(
           defaultList,
-          'Click to add a step.',
+          'Click on me to see details of the goal',
           '#96D470',
           format(addDays(today, 1), 'yyyy-MM-dd'),
           false,
           false,
-          'You can also add notes!',
+          'Add notes for the goal',
           steps
         )
       );
@@ -110,16 +114,7 @@ const MasterList = (() => {
       defaultList.addItem(
         GoalsBuilder(
           defaultList,
-          'Start a new list.',
-          '#959FEF',
-          format(addDays(today, 7), 'yyyy-MM-dd')
-        )
-      );
-  
-      defaultList.addItem(
-        GoalsBuilder(
-          defaultList,
-          'Discover Tasker!',
+          'Completed woho !!!!',
           '#AC68D7',
           format(addDays(today, -1), 'yyyy-MM-dd'),
           true,
