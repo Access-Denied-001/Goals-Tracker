@@ -125,14 +125,16 @@ const MasterList = (() => {
       Object.assign(MasterList, newMasterList);
       MasterList.setActiveList(defaultList);
     };
-  
-    return Object.assign(Object.create(ListBuilder('Master List')), {
+
+    const returnedObject = {
       setActiveList,
       getActiveList,
       prepareForStorage,
       reconstructFromStorage,
       buildDefault,
-    });
+    };
+  
+    return Object.assign(Object.create(ListBuilder('Master List')), returnedObject);
 })();
 
 export default MasterList;
