@@ -413,7 +413,7 @@ const DomController = (() => {
     const favouritesCard = favouritesBtn.parentElement;
     const totalTasksList = favouritesCard.getElementsByClassName(TOTAL_TASKS_CLASS);
     const matches = findAllStarredTasks();
-    
+
     if(totalTasksList.length > 0){
       const totalTasks = totalTasksList[0];
       totalTasks.innerHTML = matches.items.length > 99? NINETY_NINE_PLUS : matches.items.length;
@@ -754,7 +754,7 @@ const DomController = (() => {
 
       activeGoalSidebar.classList.add(ACTIVE);
       overlay.classList.add(ACTIVE);
-    }
+    };
 
     function buildCheckBox(goal, card) {
       const checkBox = document.createElement(DIV);
@@ -775,7 +775,7 @@ const DomController = (() => {
       });
 
       return checkBox;
-    }
+    };
 
     function buildPriorityBtn(goal) {
       const priority = document.createElement(DIV);
@@ -790,13 +790,13 @@ const DomController = (() => {
       });
 
       return priority;
-    }
+    };
 
     function addStep(goal, step) {
       goal.steps.addItem(StepBuilder(step));
       setMasterListToLocalStorage(MasterList);
       displaySteps(goal);
-    }
+    };
 
     function displaySteps(goal) {
       const stepsContainer = document.querySelector(ACTIVE_STEPS_CONTAINER_CLASS);
@@ -845,9 +845,11 @@ const DomController = (() => {
     function onPriorityToggled(btnContainer, goal) {
       const favouriteStatus = goal.priority;
       if (favouriteStatus){
-        btnContainer.innerHTML = '<i class="fa-solid fa-star"></i>';
+        const favouriteStar = '<i class="fa-solid fa-star"></i>';
+        btnContainer.innerHTML = favouriteStar;
       }else{
-        btnContainer.innerHTML = '<i class="fa-regular fa-star"></i>';
+        const notFavouriteStar = '<i class="fa-regular fa-star"></i>';
+        btnContainer.innerHTML = notFavouriteStar;
       }
       getTotalFavouriteTasks();
     };
@@ -855,9 +857,11 @@ const DomController = (() => {
     function onCompletedToggled(btnContainer, goal) {
       const goalCompleted = goal.complete;
       if(goalCompleted){
-        btnContainer.innerHTML = '<i class="complete-task fa-solid fa-circle-check"></i>';
+        const completedTask = '<i class="complete-task fa-solid fa-circle-check"></i>';
+        btnContainer.innerHTML = completedTask;
       }else {
-        btnContainer.innerHTML = '<i class="incomplete-task fa-regular fa-circle"></i>';
+        const uncompletedTask = '<i class="incomplete-task fa-regular fa-circle"></i>';
+        btnContainer.innerHTML = uncompletedTask;
       }
     };
 
